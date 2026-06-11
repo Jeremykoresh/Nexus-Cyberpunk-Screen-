@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, 
+initial-scale=1.0">
+<title>Nexus Security Portal</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Consolas, monospace;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    background:#050816;
+    overflow:hidden;
+}
+
+body::before{
+    content:'';
+    position:absolute;
+    width:200%;
+    height:200%;
+    background:
+    radial-gradient(circle,#00d9ff55 1px,transparent 1px);
+    background-size:50px 50px;
+    animation:moveParticles 20s linear infinite;
+}
+
+@keyframes moveParticles{
+    from{
+        transform:translate(0,0);
+    }
+    to{
+        transform:translate(-200px,-200px);
+    }
+}
+
+.container{
+    position:relative;
+    width:370px;
+    padding:35px;
+    border:2px solid #00d9ff;
+    border-radius:20px;
+    background:rgba(10,15,35,.9);
+    overflow:hidden;
+    z-index:1;
+    animation:glow 3s ease-in-out infinite;
+}
+
+h1{
+    text-align:center;
+    color:white;
+    margin-bottom:30px;
+    letter-spacing:3px;
+
+    text-shadow:
+        0 0 5px #00d9ff,
+        0 0 10px #00d9ff,
+        0 0 20px #00d9ff,
+        0 0 40px #8a2be2,
+        0 0 80px #8a2be2;
+}
+
+.input-box{
+    position:relative;
+    margin:25px 0;
+}
+
+.input-box input{
+    width:100%;
+    padding:15px;
+    background:transparent;
+    border:2px solid #1b3358;
+    border-radius:10px;
+    color:white;
+    outline:none;
+    transition:.3s;
+}
+
+.input-box label{
+    position:absolute;
+    left:15px;
+    top:15px;
+    color:#7aa8c7;
+    pointer-events:none;
+    transition:.3s;
+}
+
+.input-box input:focus,
+.input-box input:valid{
+    border-color:#00d9ff;
+    box-shadow:
+    0 0 10px #00d9ff;
+}
+
+.input-box input:focus + label,
+.input-box input:valid + label{
+    top:-10px;
+    left:10px;
+    font-size:12px;
+    background:#050816;
+    padding:0 5px;
+    color:#00d9ff;
+    text-shadow:
+    0 0 5px #00d9ff,
+    0 0 10px #00d9ff;
+}
+
+button{
+    position:relative;
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    color:white;
+    font-weight:bold;
+    letter-spacing:1px;
+    overflow:hidden;
+    background:
+    linear-gradient(
+        90deg,
+        #00d9ff,
+        #8a2be2
+    );
+}
+
+button::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:50%;
+    height:100%;
+    background:rgba(255,255,255,.4);
+    transform:skewX(-25deg);
+}
+
+button:hover::before{
+    left:150%;
+    transition:.8s;
+}
+
+.status{
+    margin-top:15px;
+    text-align:center;
+    color:#00ff88;
+    min-height:20px;
+}
+
+.scan-line{
+    position:absolute;
+    left:0;
+    width:100%;
+    height:3px;
+    background:#00ffff;
+    filter:blur(4px);
+    animation:scan 3s linear infinite;
+}
+
+@keyframes scan{
+    0%{
+        top:-10px;
+    }
+    100%{
+        top:110%;
+    }
+}
+
+@keyframes glow{
+    0%,100%{
+        box-shadow:
+        0 0 10px #00d9ff;
+    }
+    50%{
+        box-shadow:
+        0 0 25px #00d9ff,
+        0 0 50px #8a2be2,
+        0 0 80px #8a2be2;
+    }
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="scan-line"></div>
+    <h1>NEXUS SECURITY PORTAL</h1>
+    <div class="input-box">
+        <input type="text" required>
+        <label>Username</label>
+    </div>
+    <div class="input-box">
+        <input type="password" required>
+        <label>Password</label>
+    </div>
+    <button onclick="verify()">
+        VERIFY ACCESS
+    </button>
+    <div class="status" id="status"></div>
+</div>
+<script>
+function verify(){
+    let status =
+    document.getElementById("status");
+    status.style.color =
+    "#ffd700";
+    status.innerHTML =
+    "VERIFYING...";
+    setTimeout(()=>{
+        status.style.color =
+        "#00ff88";
+        status.innerHTML =
+        "ACCESS GRANTED ✓";
+    },1500);
+}
+</script>
+</body>
+</html>
