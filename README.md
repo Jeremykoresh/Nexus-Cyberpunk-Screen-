@@ -1,4 +1,4 @@
-<img width="1358" height="641" alt="image" src="https://github.com/user-attachments/assets/f2825240-2806-4173-93ad-47a60e945c71" /># ⚡ Nexus Cyberpunk Screen
+# ⚡ Nexus Cyberpunk Screen
 
 A futuristic cyberpunk-style animated interface built using pure HTML, CSS, and JavaScript. This project combines neon glow effects, animated scan lines, floating particle backgrounds, and interactive UI elements to create an immersive sci-fi screen experience.
 
