@@ -38,7 +38,7 @@ Nexus-Cyberpunk-Screen/
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/Jeremykoresh/Nexus-Cyberpunk-Screen.git-
+git clone https://github.com/Jeremykoresh/Nexus-Cyberpunk-Screen-.git
 ```
 
 ### Open the Project
